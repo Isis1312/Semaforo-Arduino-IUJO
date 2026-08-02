@@ -61,3 +61,51 @@ void setup() {
   pinMode(PIN_S4_V_PEA, OUTPUT);
 }
 
+//  FUNCIONES DE CONTROL
+
+void setVehiculo(int semaforoNum, int estadoR, int estadoA, int estadoV) {
+  switch (semaforoNum) {
+    case 1:
+      digitalWrite(PIN_S1_R_VEH, estadoR);
+      digitalWrite(PIN_S1_A_VEH, estadoA);
+      digitalWrite(PIN_S1_V_VEH, estadoV);
+      break;
+    case 2:
+      digitalWrite(PIN_S2_R_VEH, estadoR);
+      digitalWrite(PIN_S2_A_VEH, estadoA);
+      digitalWrite(PIN_S2_V_VEH, estadoV);
+      break;
+    case 3:
+      digitalWrite(PIN_S3_R_VEH, estadoR);
+      digitalWrite(PIN_S3_A_VEH, estadoA);
+      digitalWrite(PIN_S3_V_VEH, estadoV);
+      break;
+    case 4:
+      digitalWrite(PIN_S4_R_VEH, estadoR);
+      digitalWrite(PIN_S4_A_VEH, estadoA);
+      digitalWrite(PIN_S4_V_VEH, estadoV);
+      break;
+  }
+}
+
+void setPeatonal(int semaforoNum, int estadoR, int estadoV) {
+  switch (semaforoNum) {
+    case 1:
+      digitalWrite(PIN_S1_R_PEA, estadoR);
+      digitalWrite(PIN_S1_V_PEA, estadoV);
+      break;
+    case 2:
+      digitalWrite(PIN_S2_R_PEA, estadoR);
+      digitalWrite(PIN_S2_V_PEA, estadoV);
+      break;
+    case 3:
+      digitalWrite(PIN_S3_R_PEA, estadoR);
+      break;
+    case 4:
+      digitalWrite(PIN_S4_R_PEA, estadoR);
+      digitalWrite(PIN_S4_V_PEA, estadoV);
+      break;
+  }
+}
+
+
