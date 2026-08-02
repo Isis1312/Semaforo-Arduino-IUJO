@@ -108,6 +108,8 @@ void setPeatonal(int semaforoNum, int estadoR, int estadoV) {
   }
 }
 
+
+ //Trafico 1
 void loop() {
   
   setVehiculo(1, LOW, LOW, HIGH);
@@ -147,4 +149,44 @@ void loop() {
   
   delay(TIEMPO_TODO_ROJO);
 
+}
+
+//Trafico 2
+  setVehiculo(1, HIGH, LOW, LOW);
+  setVehiculo(2, HIGH, LOW, LOW);
+  setVehiculo(3, LOW, LOW, HIGH);
+  setVehiculo(4, LOW, LOW, HIGH);
+  
+  setPeatonal(1, LOW, HIGH);
+  setPeatonal(2, LOW, HIGH);
+  setPeatonal(3, HIGH, LOW);
+  setPeatonal(4, HIGH, LOW);
+  
+  delay(TIEMPO_VERDE_VEH);
+
+  // --- TRANSICIÓN FASE 2 ---
+  digitalWrite(PIN_S3_V_VEH, LOW);
+  digitalWrite(PIN_S3_A_VEH, HIGH);
+  digitalWrite(PIN_S4_V_VEH, LOW);
+  digitalWrite(PIN_S4_A_VEH, HIGH);
+  
+  for (int i = 0; i < 4; i++) {
+    digitalWrite(PIN_S1_V_PEA, LOW);
+    delay(TIEMPO_PEA_PARPADEO);
+    digitalWrite(PIN_S1_V_PEA, HIGH);
+    delay(TIEMPO_PEA_PARPADEO);
+  }
+  
+  // --- SEGURIDAD FINAL: TODO ROJO ---
+  digitalWrite(PIN_S3_A_VEH, LOW);
+  digitalWrite(PIN_S3_R_VEH, HIGH);
+  digitalWrite(PIN_S4_A_VEH, LOW);
+  digitalWrite(PIN_S4_R_VEH, HIGH);
+  
+  setPeatonal(1, HIGH, LOW);
+  setPeatonal(2, HIGH, LOW);
+  setPeatonal(3, HIGH, LOW);
+  setPeatonal(4, HIGH, LOW);
+  
+  delay(TIEMPO_TODO_ROJO);
 }
