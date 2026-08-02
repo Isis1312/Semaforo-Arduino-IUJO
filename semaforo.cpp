@@ -108,4 +108,43 @@ void setPeatonal(int semaforoNum, int estadoR, int estadoV) {
   }
 }
 
+void loop() {
+  
+  setVehiculo(1, LOW, LOW, HIGH);
+  setVehiculo(2, LOW, LOW, HIGH); 
+  setVehiculo(3, HIGH, LOW, LOW); 
+  setVehiculo(4, HIGH, LOW, LOW); 
+  
+  setPeatonal(1, HIGH, LOW);
+  setPeatonal(2, HIGH, LOW);
+  setPeatonal(3, LOW, HIGH);
+  setPeatonal(4, LOW, HIGH);
+  
+  delay(TIEMPO_VERDE_VEH);
 
+  digitalWrite(PIN_S1_V_VEH, LOW);
+  digitalWrite(PIN_S1_A_VEH, HIGH);
+  digitalWrite(PIN_S2_V_VEH, LOW);
+  digitalWrite(PIN_S2_A_VEH, HIGH);
+  
+  for (int i = 0; i < 4; i++) {
+    digitalWrite(PIN_S4_V_PEA, LOW);
+    delay(TIEMPO_PEA_PARPADEO);
+    digitalWrite(PIN_S4_V_PEA, HIGH);
+    delay(TIEMPO_PEA_PARPADEO);
+  }
+
+
+  digitalWrite(PIN_S1_A_VEH, LOW);
+  digitalWrite(PIN_S1_R_VEH, HIGH);
+  digitalWrite(PIN_S2_A_VEH, LOW);
+  digitalWrite(PIN_S2_R_VEH, HIGH);
+  
+  setPeatonal(1, HIGH, LOW);
+  setPeatonal(2, HIGH, LOW);
+  setPeatonal(3, HIGH, LOW);
+  setPeatonal(4, HIGH, LOW);
+  
+  delay(TIEMPO_TODO_ROJO);
+
+}
